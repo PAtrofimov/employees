@@ -97,6 +97,13 @@ body {
   cursor: inherit;
 }
 
+.employees-birthday-noselected {
+  font-size: 1.5rem;
+  font-weight: 500;
+  color: red;
+  margin-top: 1rem;
+}
+
 /* end of birthdays */
 
 /* lines */

@@ -12,7 +12,7 @@ const BirthDays = ({ users }) => {
     );
 
     if (months.length === 0) {
-      return <p>No selected employees</p>;
+      return <p className="employees-birthday-noselected">No selected employees</p>;
     }
 
     return months.map((month) => {

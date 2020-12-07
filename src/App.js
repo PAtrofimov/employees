@@ -13,7 +13,7 @@ const App = () => (
     <ConnectedRouter history={history}>
       <>
         <Router history={history}>
-          <Route exact path="/employees" component={Users} />
+          <Route path="/employees" component={Users} />
           <Route exact path="/" component={NotFound} />
         </Router>
       </>
