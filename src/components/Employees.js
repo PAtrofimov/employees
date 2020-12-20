@@ -1,10 +1,6 @@
-import { bindActionCreators } from "redux";
-import { connect } from "react-redux";
 import PropTypes from "prop-types";
 import { ALPHABET } from "../utils/constants";
 import { UserByName } from "../utils";
-
-import { setUsersMarks } from "../redux/user/userActions";
 
 const Employees = ({ users, setUsersMarks }) => {
   const showLetters = (users) => {
@@ -38,6 +34,7 @@ const Employees = ({ users, setUsersMarks }) => {
               className="employee-checkbox"
               checked={user.active}
               onChange={({ target }) => {
+                console.log({user, setUsersMarks});
                 setUsersMarks(user.id);
               }}
             />
@@ -59,12 +56,4 @@ Employees.defaultProps = {
   users: [],
 };
 
-const actions = { setUsersMarks };
-
-const mapStateToProps = ({ user }) => ({
-  users: user.users,
-});
-
-const mapDispatchToProps = (dispatch) => bindActionCreators(actions, dispatch);
-
-export default connect(mapStateToProps, mapDispatchToProps)(Employees);
+export default Employees;

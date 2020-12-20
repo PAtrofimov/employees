@@ -1,10 +1,11 @@
 import React, { useEffect } from "react";
+import { bindActionCreators } from "redux";
 import { connect } from "react-redux";
-import { getUsers } from "../redux/user/userActions";
-import Birthdays from "./BirthDays";
-import Employees from "./Employees";
+import { getUsers, setUsersMarks } from "../redux/user/userActions";
+import Birthdays from "../components/BirthDays";
+import Employees from "../components/Employees";
 
-function Users({ userData, getUsers }) {
+function EmployeesContainer({ userData, getUsers, setUsersMarks}) {
   useEffect(() => {
     getUsers();
   }, []);
@@ -17,13 +18,13 @@ function Users({ userData, getUsers }) {
       <main className="employees-wrapper">
         <section className="employees-alphabet">
           <h1 className="employees-heading">Employees</h1>
-          <Employees />
+          <Employees users={userData.users} setUsersMarks={setUsersMarks}/>
         </section>
 
         <article className="employees-birthday-wrapper">
           <h1 className="employees-heading">Employees birthday</h1>
           <hr className="line line-right" />
-          <Birthdays />
+          <Birthdays users={userData.users}/>
         </article>
       </main>
       <hr className="line line-bottom" />
@@ -37,10 +38,8 @@ const mapStateToProps = (state) => {
   };
 };
 
-const mapDispatchToProps = (dispatch) => {
-  return {
-    getUsers: () => dispatch(getUsers()),
-  };
-};
+const actions = { setUsersMarks, getUsers };
 
-export default connect(mapStateToProps, mapDispatchToProps)(Users);
+const mapDispatchToProps = (dispatch) => bindActionCreators(actions, dispatch);
+
+export default connect(mapStateToProps, mapDispatchToProps)(EmployeesContainer);

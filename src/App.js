@@ -3,7 +3,7 @@ import { Provider } from "react-redux";
 import configureStore, { history } from "./redux/configureStore";
 import { Route, BrowserRouter as Router } from "react-router-dom";
 import { ConnectedRouter } from "connected-react-router";
-import Users from "./components/Users";
+import EmployeesContainer from "./containers/EmployeesContainer";
 import NotFound from "./components/NotFound";
 
 const store = configureStore();
@@ -13,7 +13,7 @@ const App = () => (
     <ConnectedRouter history={history}>
       <>
         <Router history={history}>
-          <Route path="/employees" component={Users} />
+          <Route path="/employees" component={EmployeesContainer} />
           <Route exact path="/" component={NotFound} />
         </Router>
       </>

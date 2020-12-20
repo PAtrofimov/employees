@@ -46,6 +46,8 @@ const reducer = (state = initialState, action) => {
       };
 
     case SET_USERS_MARKS: {
+
+      console.log({payload: action.payload});
       const users = state.users.map((user) => {
         if (user.id === action.payload) {
           return { ...user, active: !user.active };

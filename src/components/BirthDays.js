@@ -1,6 +1,4 @@
 import { MONTHS } from "../utils/constants";
-import { bindActionCreators } from "redux";
-import { connect } from "react-redux";
 import PropTypes from "prop-types";
 
 const BirthDays = ({ users }) => {
@@ -52,12 +50,4 @@ BirthDays.defaultProps = {
   users: [],
 };
 
-const actions = {};
-
-const mapStateToProps = ({ user }) => ({
-  users: user.users,
-});
-
-const mapDispatchToProps = (dispatch) => bindActionCreators(actions, dispatch);
-
-export default connect(mapStateToProps, mapDispatchToProps)(BirthDays);
+export default BirthDays;
