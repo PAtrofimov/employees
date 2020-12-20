@@ -11,12 +11,10 @@ const store = configureStore();
 const App = () => (
   <Provider store={store}>
     <ConnectedRouter history={history}>
-      <>
-        <Router history={history}>
-          <Route path="/employees" component={EmployeesContainer} />
-          <Route exact path="/" component={NotFound} />
-        </Router>
-      </>
+      <Router>
+        <Route path="/employees" component={EmployeesContainer} />
+        <Route exact path="/" component={NotFound} />
+      </Router>
     </ConnectedRouter>
   </Provider>
 );
